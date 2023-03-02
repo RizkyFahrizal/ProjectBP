@@ -86,20 +86,56 @@ class cMakanan{
     }
 }
 
+class cMinuman{
+    //data
+    private String namaMinuman;
+    private int hargaMinuman;
+    
+    //method
+    cMinuman(String nmin, int hmin){
+        namaMinuman = nmin;
+        hargaMinuman = hmin;
+        
+        System.out.println("Minuman "+namaMinuman+" dibuat..");        
+    }
+    
+    public void setNamaMinuman(String nmin){
+        namaMinuman = nmin;
+    }
+    
+    public void setHargaMinuman(int hmin){
+        hargaMinuman = hmin;
+    }
+    
+    public String getNamaMinuman(){
+        return namaMinuman;
+    }
+    
+    public int getHargaMinuman(){
+        return hargaMinuman;
+    }
+    
+    public String ToString(){
+        return namaMinuman+" ["+hargaMinuman+"] ";
+    }
+}
+
 public class AppMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         cMakanan mkn = new cMakanan("Kentang Goreng", 10000); //membuat objek
         cPembeli pbl = new cPembeli("Alan", "Waru");
+        cMinuman min = new cMinuman("Milkshake Vanilla", 8000);
         
         int pilih = 0;
         
         do{
             System.out.println("\nWARUNG KITA");
             System.out.println("1. Makanan");
-            System.out.println("2. Pembeli");
-            System.out.println("3. Selesai");
+            System.out.println("2. Minuman");
+            System.out.println("3. Pembeli");
+            System.out.println("4. Selesai");
             System.out.print("   Pilih = ");
             pilih = sc.nextInt();
             switch(pilih){
@@ -143,6 +179,45 @@ public class AppMain {
                     }while(pilih1 != 4);
                     break;
                 case 2:
+                    //sub menu minuman
+                    pilih1 = 0;
+                    do{
+                        System.out.println("==== M I N U M A N ====");
+                        System.out.println(" 1. Buat Data");
+                        System.out.println(" 2. Lihat Data");
+                        System.out.println(" 3. Ubah Data");
+                        System.out.println(" 4. Kembali");
+                        System.out.print("   Pilih = ");
+                        pilih1 = sc.nextInt();
+                        switch(pilih1){
+                            case 1:
+                                  System.out.print("Nama Minuman    = ");
+                                  sc.nextLine();
+                                  String nminuman = sc.nextLine();                               
+                                  System.out.print("Harga Minuman  = ");                                 
+                                  int hminuman = sc.nextInt();
+                                  min = new cMinuman(nminuman, hminuman);                                
+                                break;
+                            case 2:
+                                  String t = min.ToString();
+                                  System.out.println("Minuman : "+t);                                
+                                break;
+                            case 3:
+                                  System.out.print("Minuman Baru = ");
+                                  sc.nextLine();                                    
+                                  String nmin = sc.nextLine();
+                                  min.setNamaMinuman(nmin);
+                                  System.out.print("Harga Baru = ");                                  
+                                  int hmin = sc.nextInt();
+                                  min.setHargaMinuman(hmin);                                   
+                                break;
+                            case 4:
+                                  System.out.println("Ke Menu Utama..");
+                                break;
+                        }
+                    }while(pilih1 != 4);
+                    break;
+                case 3:
                     //sub menu pembeli
                     pilih1 = 0;
                     do{
@@ -183,10 +258,10 @@ public class AppMain {
                         }
                     }while(pilih1 != 4);
                     break;
-                case 3:
-                    System.out.println("Terimakasih...");
+                case 4:
+                    System.out.println("Terimakasih...");                    
                     break;
             }
-        }while(pilih != 3);
+        }while(pilih != 4);
     }    
 }
