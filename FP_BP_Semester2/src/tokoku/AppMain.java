@@ -16,122 +16,24 @@ OOP --> Class !!!
 
 import java.util.Scanner;
 
-class cPembeli{
-    
-    //data
-    private String namaPembeli;
-    private String alamatPembeli;
-    
-    //method
-    cPembeli(String n, String a){
-        namaPembeli = n;
-        alamatPembeli = a;
-        System.out.println("Pembeli" +namaPembeli+ " dibuat..");
-    }
-    
-    public void setNamaPembeli(String n){
-        namaPembeli = n;
-    }
-    
-    public void setAlamatPembeli(String a){
-        alamatPembeli = a;
-    }
-    
-    public String getNamaPembeli(){
-        return namaPembeli;
-    }
-    
-    public String getAlamatPembeli(){
-        return alamatPembeli;
-    }
-    
-    public String ToString(){
-        return namaPembeli+" ["+alamatPembeli+"] ";
-    }
-    
-}
-
-class cMakanan{
-    
-    //data
-    private String namaMakanan;
-    private int hargaMakanan;
-    
-    //method
-    cMakanan(String nm, int hm){
-        namaMakanan = nm;
-        hargaMakanan = hm;
-        
-        System.out.println("Menu "+namaMakanan+" dibuat..");
-    }
-    
-    public void setNamaMakanan(String nm){
-        namaMakanan = nm;
-    }
-    
-    public void setHargaMakanan(int hm){
-        hargaMakanan = hm;
-    }
-    
-    public String getNamaMakanan(){
-        return namaMakanan;
-    }
-    
-    public int getHargaMakanan(){
-        return hargaMakanan;
-    }
-    
-    public String ToString(){
-        return namaMakanan+" ["+hargaMakanan+"] ";
-    }
-}
-
-class cMinuman{
-    //data
-    private String namaMinuman;
-    private int hargaMinuman;
-    
-    //method
-    cMinuman(String nmin, int hmin){
-        namaMinuman = nmin;
-        hargaMinuman = hmin;
-        
-        System.out.println("Minuman "+namaMinuman+" dibuat..");        
-    }
-    
-    public void setNamaMinuman(String nmin){
-        namaMinuman = nmin;
-    }
-    
-    public void setHargaMinuman(int hmin){
-        hargaMinuman = hmin;
-    }
-    
-    public String getNamaMinuman(){
-        return namaMinuman;
-    }
-    
-    public int getHargaMinuman(){
-        return hargaMinuman;
-    }
-    
-    public String ToString(){
-        return namaMinuman+" ["+hargaMinuman+"] ";
-    }
-}
 
 public class AppMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        cMakanan mkn = new cMakanan("Kentang Goreng", 10000); //membuat objek
+        cMakanan mkn = new cMakanan("Kentang Goreng", 10000);
         cPembeli pbl = new cPembeli("Alan", "Waru");
         cMinuman min = new cMinuman("Milkshake Vanilla", 8000);
         
         int pilih = 0;
         
+        System.out.println("\n---------- RNR FOOD & BEVERAGE----------");
+        System.out.println("Program Made By : ");
+        System.out.println("1. M. Rizky Fahrizal        22082010041");
+        System.out.println("2. Risda Rahmawati Harsono  22082010040");
+        System.out.println("3. Nanda Kharisma Safiri    22082010036");
         do{
-            System.out.println("\nWARUNG KITA");
+            System.out.println("****** MENU PROGRAM ******");
             System.out.println("1. Makanan");
             System.out.println("2. Minuman");
             System.out.println("3. Pembeli");
