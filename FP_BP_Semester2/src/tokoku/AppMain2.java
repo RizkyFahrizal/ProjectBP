@@ -183,10 +183,45 @@ public class AppMain2 {
                             pembeli = new cPembeli(namaPembeli, alamatPembeli);                            
                             break;
                         case 2:
+                            if(pembeli == null){
+                                System.out.println("  Data Pembeli Kosong...");
+                            }else{
+                            System.out.println("  Data Pembeli");
+                            System.out.println("  "+pembeli.ToString());
+                            }                            
                             break;
                         case 3:
+                            System.out.println("  Ubah Info Pembeli");
+//                          System.out.print("  Nama Baru Pembeli   : ");
+//                          sc.nextLine();
+//                          String namaPembeliBaru = sc.nextLine();
+                            System.out.print("  Alamat Baru Pembeli : ");
+                            sc.nextLine();
+                            String alamatPembeliBaru = sc.nextLine();
+                            System.out.println("  Yakin Mengubah Alamat Pembeli?");
+                            System.out.println("  1. Ya\n 2. Tidak");
+                            System.out.print("    Jawab : ");
+                            int jawab = sc.nextInt();
+                            if(jawab == 1){
+                                //pembeli.setNamaPembeli(namaPembeliBaru);
+                                pembeli.setAlamatPembeli(alamatPembeliBaru);
+                                System.out.println("  Data Harga Info Pembeli Telah Berubah...");                                
+                            }else{
+                                System.out.println("  Data Harga Info Pembeli Batal Diubah..");
+                            }//tutup if else konfirmasi ubah nama pembeli                                
                             break;
                         case 4:
+                            System.out.println("  Hapus Pembeli");
+                            System.out.println("  Yakin Menghapus Pembeli?");
+                            System.out.println("  1. Ya\n 2. Tidak");
+                            System.out.print("    Jawab : ");
+                            int jawab1 = sc.nextInt();
+                                if(jawab1 == 1){
+                                pembeli= null;
+                                System.out.println("  Data Pembeli Telah Dihapus...");                              
+                            }else{
+                                System.out.println("  Data Pembeli Batal Dihapus..");
+                            }//tutup if else menghapus pembeli                            
                             break;
                         case 5:
                             System.out.println("  Kembali Ke Menu Utama...");                            
