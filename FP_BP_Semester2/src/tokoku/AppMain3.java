@@ -159,7 +159,6 @@ public class AppMain3 {
                     break; //pembatas sub menu minuman
                 case 3:
                     do{
-                    //sub menu makanan
                     System.out.println("  ===SUB MENU PEMBELI===  ");
                     System.out.println("  1. Tambah Data Pembeli");
                     System.out.println("  2. Lihat Data Pembeli");
