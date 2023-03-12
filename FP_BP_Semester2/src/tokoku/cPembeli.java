@@ -4,10 +4,6 @@
  */
 package tokoku;
 
-/**
- *
- * @author asus
- */
 class cPembeli{
     
     //data

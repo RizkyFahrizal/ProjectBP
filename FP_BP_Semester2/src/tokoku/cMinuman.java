@@ -4,10 +4,6 @@
  */
 package tokoku;
 
-/**
- *
- * @author asus
- */
 class cMinuman{
     //data
     private String namaMinuman;

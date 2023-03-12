@@ -6,7 +6,11 @@ package tokoku;
 
 import java.util.Scanner;
 
-public class AppMain2 {
+
+//class buat copas
+
+public class AppMain3 {
+    
     public static void main(String[] args) {
         cMakanan makanan = null;
         cMinuman minuman = null;
@@ -59,9 +63,6 @@ public class AppMain2 {
                             break;
                         case 3:
                             System.out.println("  Ubah Menu Makanan");
-//                            System.out.print("  Nama Baru Makanan    : ");
-//                            sc.nextLine();
-//                            String namaMakananBaru = sc.nextLine();
                             System.out.print("  Harga Makanan   : ");
                             int hargaMakananBaru = sc.nextInt();
                             System.out.println("  Yakin Mengubah Harga Menu Makanan?");
@@ -69,7 +70,6 @@ public class AppMain2 {
                             System.out.print("    Jawab : ");
                             int jawab = sc.nextInt();
                             if(jawab == 1){
-                                //makanan.setNamaMakanan(namaMakananBaru);
                                 makanan.setHargaMakanan(hargaMakananBaru);
                                 System.out.println("  Data Harga Menu Makanan Telah Berubah...");                                
                             }else{
@@ -125,9 +125,6 @@ public class AppMain2 {
                             break;
                         case 3:
                             System.out.println("  Ubah Menu Minuman");
-//                            System.out.print("  Nama Baru Minuman    : ");
-//                            sc.nextLine();
-//                            String namaMinumanBaru = sc.nextLine();
                             System.out.print("  Harga Minuman   : ");
                             int hargaMinumanBaru = sc.nextInt();
                             System.out.println("  Yakin Mengubah Harga Menu Minuman?");
@@ -192,9 +189,6 @@ public class AppMain2 {
                             break;
                         case 3:
                             System.out.println("  Ubah Info Pembeli");
-//                          System.out.print("  Nama Baru Pembeli   : ");
-//                          sc.nextLine();
-//                          String namaPembeliBaru = sc.nextLine();
                             System.out.print("  Alamat Baru Pembeli : ");
                             sc.nextLine();
                             String alamatPembeliBaru = sc.nextLine();
@@ -203,7 +197,6 @@ public class AppMain2 {
                             System.out.print("    Jawab : ");
                             int jawab = sc.nextInt();
                             if(jawab == 1){
-                                //pembeli.setNamaPembeli(namaPembeliBaru);
                                 pembeli.setAlamatPembeli(alamatPembeliBaru);
                                 System.out.println("  Data Harga Info Pembeli Telah Berubah...");                                
                             }else{
@@ -232,5 +225,6 @@ public class AppMain2 {
         }while(pilih != 4);
     }//tutup main
 
+        
     
-}//tutup class appmain2
+}//tutup appmain3
