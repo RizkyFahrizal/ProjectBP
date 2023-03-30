@@ -4,19 +4,21 @@
  */
 package progress5;
 
-
-
-//relasi baru : pembeli dapat membeli makanan dan minuman sekaligus
-//class baru --> minuman
-//karena class makanan dan class minuman mirip/sama datanya
-//maka buat class baru --> umum --> bernama class menu
-//variabel/data di dalam class makanan itu sama dengan class minuman
-//1. buat class baru yang bisa mengcover kedua class tsb --> class menu
-//
-
 import java.util.Scanner;
 
-public class appMain {
+/*
+
+pembeli membeli makanan
+class : pembeli, makanan
+
+proses bisnis : pembeli membeli makanan dan minuman
+class baru : minuman
+variable : nama minuman, harga 
+
+
+*/
+
+public class appMain2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int pilih1 = 0;
@@ -25,17 +27,23 @@ public class appMain {
         cMakanan menu[] = new cMakanan[7];
         cPembelian beli = new cPembelian(3);  
         
-        cMinuman minum = new cMinuman("Es Jeruk", 3500);
-        System.out.println(minum.ToString());
-        minum.setHarga(4000);
-        System.out.println("Menu       : "+minum.getNama());
-        System.out.println("Harga baru : "+minum.getHarga());
-        
-        cMakanan2 makan = new cMakanan2("Pecel", 8000);
-        System.out.println(makan.ToString());
-        makan.setHarga(10000);
-        System.out.println("Menu       : "+makan.getNama());
-        System.out.println("Harga baru : "+makan.getHarga());
+//        cMinuman minum = new cMinuman("   Milkshake Coklat", 3500);
+//        System.out.println(minum.ToString());
+//        minum.setHarga(4000);
+//        System.out.println("    Harga baru : "+minum.getNama());
+//        minum.nama = "Milkshake Vanilla";
+//        System.out.println("    Nama baru  : "+minum.getNama());
+//        minum.setTopping("Oreo");
+//        System.out.println("   "+minum.ToString());
+//        System.out.println("");
+//        
+//        cMakanan2 makan = new cMakanan2("   Pecel", 10000);
+//        System.out.println(makan.ToString());
+//        makan.setHarga(12000);
+//        System.out.println("    Harga baru : "+makan.getNama()+" "+makan.getHarga());
+//        makan.nama = "Bubur Ayam";
+//        System.out.println("    Nama baru  : "+makan.getNama());
+//        System.out.println("");
         
         //data menu makanan
         menu[0] = new cMakanan("nugget",48500);
@@ -47,7 +55,7 @@ public class appMain {
         menu[6] = new cMakanan("dumpling",18000);
        
         System.out.println("");
-        System.out.println("|------------- ANGGOTA KELOMP0K 13 ------------|");
+        System.out.println("|------------- ANGGOTA KELOMP0K 14 ------------|");
         System.out.println("| 1. Nanda Kharisma Safiri    22082010036      |");
         System.out.println("| 2. Risda Rahmawati Harsono  22082010040      |");        
         System.out.println("| 3. M. Rizky Fahrizal        22082010041      |");
@@ -62,6 +70,24 @@ public class appMain {
         System.out.println("|----------------------------------------------|");
         
         System.out.println("");
+        
+        cMinuman minum = new cMinuman("   Milkshake Coklat", 3500);
+        System.out.println(minum.ToString());
+        minum.setHarga(4000);
+        System.out.println("    Harga baru : "+minum.getNama());
+        minum.nama = "Milkshake Vanilla";
+        System.out.println("    Nama baru  : "+minum.getNama());
+        minum.setTopping("Oreo");
+        System.out.println("   "+minum.ToString());
+        System.out.println("");
+        
+        cMakanan2 makan = new cMakanan2("   Pecel", 10000);
+        System.out.println(makan.ToString());
+        makan.setHarga(12000);
+        System.out.println("    Harga baru : "+makan.getNama()+" "+makan.getHarga());
+        makan.nama = "Bubur Ayam";
+        System.out.println("    Nama baru  : "+makan.getNama());
+        System.out.println("");        
         
         do{
             System.out.println("\n----- MENU UTAMA -----");
@@ -144,5 +170,5 @@ public class appMain {
             }
         }while(pilih1 != 4);
        
-    }            
+    }                
 }
