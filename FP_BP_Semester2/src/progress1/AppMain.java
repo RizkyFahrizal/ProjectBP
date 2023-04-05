@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package tokoku;
+package progress1;
 
 /*
 
@@ -16,90 +16,28 @@ OOP --> Class !!!
 
 import java.util.Scanner;
 
-class cPembeli{
-    
-    //data
-    private String namaPembeli;
-    private String alamatPembeli;
-    
-    //method
-    cPembeli(String n, String a){
-        namaPembeli = n;
-        alamatPembeli = a;
-        System.out.println("Pembeli" +namaPembeli+ " dibuat..");
-    }
-    
-    public void setNamaPembeli(String n){
-        namaPembeli = n;
-    }
-    
-    public void setAlamatPembeli(String a){
-        alamatPembeli = a;
-    }
-    
-    public String getNamaPembeli(){
-        return namaPembeli;
-    }
-    
-    public String getAlamatPembeli(){
-        return alamatPembeli;
-    }
-    
-    public String ToString(){
-        return namaPembeli+" ["+alamatPembeli+"] ";
-    }
-    
-}
-
-class cMakanan{
-    
-    //data
-    private String namaMakanan;
-    private int hargaMakanan;
-    
-    //method
-    cMakanan(String nm, int hm){
-        namaMakanan = nm;
-        hargaMakanan = hm;
-        
-        System.out.println("Menu "+namaMakanan+" dibuat..");
-    }
-    
-    public void setNamaMakanan(String nm){
-        namaMakanan = nm;
-    }
-    
-    public void setHargaMakanan(int hm){
-        hargaMakanan = hm;
-    }
-    
-    public String getNamaMakanan(){
-        return namaMakanan;
-    }
-    
-    public int getHargaMakanan(){
-        return hargaMakanan;
-    }
-    
-    public String ToString(){
-        return namaMakanan+" ["+hargaMakanan+"] ";
-    }
-}
 
 public class AppMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        cMakanan mkn = new cMakanan("Kentang Goreng", 10000); //membuat objek
+        cMakanan mkn = new cMakanan("Kentang Goreng", 10000);
         cPembeli pbl = new cPembeli("Alan", "Waru");
+        cMinuman min = new cMinuman("Milkshake Vanilla", 8000);
         
         int pilih = 0;
         
+        System.out.println("\n---------- RNR FOOD & BEVERAGE----------");
+        System.out.println("Program Made By : ");
+        System.out.println("1. M. Rizky Fahrizal        22082010041");
+        System.out.println("2. Risda Rahmawati Harsono  22082010040");
+        System.out.println("3. Nanda Kharisma Safiri    22082010036");
         do{
-            System.out.println("\nWARUNG KITA");
+            System.out.println("****** MENU PROGRAM ******");
             System.out.println("1. Makanan");
-            System.out.println("2. Pembeli");
-            System.out.println("3. Selesai");
+            System.out.println("2. Minuman");
+            System.out.println("3. Pembeli");
+            System.out.println("4. Selesai");
             System.out.print("   Pilih = ");
             pilih = sc.nextInt();
             switch(pilih){
@@ -143,6 +81,45 @@ public class AppMain {
                     }while(pilih1 != 4);
                     break;
                 case 2:
+                    //sub menu minuman
+                    pilih1 = 0;
+                    do{
+                        System.out.println("==== M I N U M A N ====");
+                        System.out.println(" 1. Buat Data");
+                        System.out.println(" 2. Lihat Data");
+                        System.out.println(" 3. Ubah Data");
+                        System.out.println(" 4. Kembali");
+                        System.out.print("   Pilih = ");
+                        pilih1 = sc.nextInt();
+                        switch(pilih1){
+                            case 1:
+                                  System.out.print("Nama Minuman    = ");
+                                  sc.nextLine();
+                                  String nminuman = sc.nextLine();                               
+                                  System.out.print("Harga Minuman  = ");                                 
+                                  int hminuman = sc.nextInt();
+                                  min = new cMinuman(nminuman, hminuman);                                
+                                break;
+                            case 2:
+                                  String t = min.ToString();
+                                  System.out.println("Minuman : "+t);                                
+                                break;
+                            case 3:
+                                  System.out.print("Minuman Baru = ");
+                                  sc.nextLine();                                    
+                                  String nmin = sc.nextLine();
+                                  min.setNamaMinuman(nmin);
+                                  System.out.print("Harga Baru = ");                                  
+                                  int hmin = sc.nextInt();
+                                  min.setHargaMinuman(hmin);                                   
+                                break;
+                            case 4:
+                                  System.out.println("Ke Menu Utama..");
+                                break;
+                        }
+                    }while(pilih1 != 4);
+                    break;
+                case 3:
                     //sub menu pembeli
                     pilih1 = 0;
                     do{
@@ -183,10 +160,10 @@ public class AppMain {
                         }
                     }while(pilih1 != 4);
                     break;
-                case 3:
-                    System.out.println("Terimakasih...");
+                case 4:
+                    System.out.println("Terimakasih...");                    
                     break;
             }
-        }while(pilih != 3);
+        }while(pilih != 4);
     }    
 }
