@@ -15,12 +15,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author asus
  */
-public class MenuAdmin extends javax.swing.JFrame {
+public class CreateBarang extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuAdmin
      */
-    public MenuAdmin() {
+    public CreateBarang() {
         initComponents();
         etIdBarang.setVisible(false);
         table();
@@ -116,13 +116,13 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         tableTampil.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nama Barang", "Harga Barang"
+                "Nama Barang", "Harga Barang", "Kategori"
             }
         ));
         tableTampil.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -246,12 +246,14 @@ public class MenuAdmin extends javax.swing.JFrame {
         tbl.addColumn("id_barang");
         tbl.addColumn("nama_barang");
         tbl.addColumn("harga_barang");
+        tbl.addColumn("kategori_barang");
         
         
         
         try {
             String sql = "SELECT * FROM barang WHERE nama_barang like '%" + tCari.getText() + "%'";
             String sql2 = "SELECT * FROM barang WHERE harga_barang like '%" + tCari.getText() + "%'";
+            String sql3 = "SELECT * FROM barang WHERE kategori_barang like '%" + tCari.getText() + "%'";            
             
             if(!sql.isEmpty()){    
                 Connection con = (Connection) Koneksi.getConnection();
@@ -262,6 +264,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                         rs.getInt("id_barang"),
                         rs.getString("nama_barang"),
                         rs.getDouble("harga_barang"),
+                        rs.getString("kategori_barang")
                     });
                     tableTampil.setModel(tbl);
                 }
@@ -276,6 +279,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                         rs.getInt("id_barang"),
                         rs.getString("nama_barang"),
                         rs.getDouble("harga_barang"),
+                        rs.getString("kategori_barang")
                     });
                     tableTampil.setModel(tbl);
                 }
@@ -292,6 +296,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         tbl.addColumn("id_barang");
         tbl.addColumn("nama_barang");
         tbl.addColumn("harga_barang");
+        tbl.addColumn("kategori_barang");        
         
         try {
             Statement st = (Statement) Koneksi.getConnection().createStatement();
@@ -302,6 +307,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                     rs.getInt("id_barang"),
                     rs.getString("nama_barang"),
                     rs.getDouble("harga_barang"),
+                    rs.getString("kategori_barang")
                 });
                 tableTampil.setModel(tbl);
             }
@@ -318,7 +324,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseClicked
         try {
-            String sql = "UPDATE barang SET nama_barang='"+etNamaBarang.getText() +"',harga_barang =" + etHargaBarang.getText()+ " WHERE id_barang ='"+etIdBarang.getText() +"'";
+            String sql = "UPDATE barang SET nama_barang='"+etNamaBarang.getText() +"',harga_barang =" + etHargaBarang.getText() +"',kategori_barang =" + etKategoriBarang.getText()+ " WHERE id_barang ='"+etIdBarang.getText() +"'";
             Connection con = (Connection) Koneksi.getConnection();
             PreparedStatement pst = con.prepareStatement(sql);
             pst.execute();
@@ -357,12 +363,14 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void tableTampilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableTampilMouseClicked
         int baris = tableTampil.rowAtPoint(evt.getPoint());
+        String ib = tableTampil.getValueAt(baris, 0).toString();
+        etIdBarang.setText(ib);        
         String nb = tableTampil.getValueAt(baris, 1).toString();
         etNamaBarang.setText(nb);
         String hb = tableTampil.getValueAt(baris, 2).toString();
         etHargaBarang.setText(hb);
-        String ib = tableTampil.getValueAt(baris, 0).toString();
-        etIdBarang.setText(ib);        
+        String kb = tableTampil.getValueAt(baris, 3).toString();
+        etKategoriBarang.setText(kb);         
 
     }//GEN-LAST:event_tableTampilMouseClicked
 
@@ -372,7 +380,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         try {
-            String sql = "INSERT INTO barang (nama_barang,harga_barang) VALUES('"+etNamaBarang.getText() +"','" +etHargaBarang.getText() +"')";
+            String sql = "INSERT INTO barang (nama_barang,harga_barang,kategori_barang) VALUES('"+etNamaBarang.getText() +"','" +etHargaBarang.getText() + "','" +etKategoriBarang.getText() +"')";
             Connection con = (Connection) Koneksi.getConnection();
             PreparedStatement pst = con.prepareStatement(sql);
             pst.execute();
@@ -410,20 +418,21 @@ public class MenuAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateBarang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateBarang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateBarang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateBarang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuAdmin().setVisible(true);
+                new CreateBarang().setVisible(true);
             }
         });
     }
