@@ -15,12 +15,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author asus
  */
-public class CreateBarang extends javax.swing.JFrame {
+public class KelolaBarang extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuAdmin
      */
-    public CreateBarang() {
+    public KelolaBarang() {
         initComponents();
         etIdBarang.setVisible(false);
         table();
@@ -116,15 +116,23 @@ public class CreateBarang extends javax.swing.JFrame {
 
         tableTampil.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nama Barang", "Harga Barang", "Kategori"
+                "ID", "Nama Barang", "Harga Barang", "Kategori"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         tableTampil.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableTampilMouseClicked(evt);
@@ -147,11 +155,11 @@ public class CreateBarang extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(71, 71, 71)
                         .addComponent(etIdBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
@@ -284,7 +292,21 @@ public class CreateBarang extends javax.swing.JFrame {
                     tableTampil.setModel(tbl);
                 }
             }
-            //refresh();
+            if(!sql3.isEmpty()){
+                Connection con = (Connection) Koneksi.getConnection();
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery(sql3);
+            
+                while(rs.next()){
+                    tbl.addRow(new Object[]{
+                        rs.getInt("id_barang"),
+                        rs.getString("nama_barang"),
+                        rs.getDouble("harga_barang"),
+                        rs.getString("kategori_barang")
+                    });
+                    tableTampil.setModel(tbl);
+                }
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Data Tidak Ada" + e.getMessage());
         }
@@ -324,7 +346,7 @@ public class CreateBarang extends javax.swing.JFrame {
 
     private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseClicked
         try {
-            String sql = "UPDATE barang SET nama_barang='"+etNamaBarang.getText() +"',harga_barang =" + etHargaBarang.getText() +"',kategori_barang =" + etKategoriBarang.getText()+ " WHERE id_barang ='"+etIdBarang.getText() +"'";
+            String sql = ("UPDATE barang SET nama_barang='"+etNamaBarang.getText()+"', harga_barang='"+etHargaBarang.getText()+"', kategori_barang='"+etKategoriBarang.getText()+"'  WHERE id_barang='"+etIdBarang.getText()+"' ");
             Connection con = (Connection) Koneksi.getConnection();
             PreparedStatement pst = con.prepareStatement(sql);
             pst.execute();
@@ -418,21 +440,23 @@ public class CreateBarang extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateBarang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KelolaBarang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateBarang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KelolaBarang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateBarang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KelolaBarang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateBarang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KelolaBarang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreateBarang().setVisible(true);
+                new KelolaBarang().setVisible(true);
             }
         });
     }

@@ -156,7 +156,7 @@ public class Login extends javax.swing.JFrame {
                 Rs = St.executeQuery(Query);
                 if(Rs.next()){
                     JOptionPane.showMessageDialog(null, "Login Successfully");
-                    new CreateBarang().setVisible(true);
+                    new KelolaBarang().setVisible(true);
                     this.dispose();
                 }else{
                     JOptionPane.showMessageDialog(this,"Wrong Account Username or Password");
