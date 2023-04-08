@@ -156,6 +156,11 @@ public class Login extends javax.swing.JFrame {
                 Rs = St.executeQuery(Query);
                 if(Rs.next()){
                     JOptionPane.showMessageDialog(null, "Login Successfully");
+//                    if(){
+//                        
+//                    }else if(){
+//                        
+//                    }
                     new KelolaBarang().setVisible(true);
                     this.dispose();
                 }else{
