@@ -28,7 +28,7 @@ public class session {
         return nama_user;
     }
     
-    public static void set_nama_user(){
+    public static void set_nama_user(String nama_user){
         session.nama_user = nama_user;
     }
     
@@ -52,8 +52,10 @@ public class session {
         return level;
     }
     
-    public static void set_level(){
+    public static void set_level(String level){
         session.level = level;
     }
+
+
     
 }

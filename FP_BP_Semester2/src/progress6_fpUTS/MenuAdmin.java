@@ -4,10 +4,9 @@
  */
 package progress6_fpUTS;
 
-/**
- *
- * @author asus
- */
+import progress6_fpUTS.Koneksi;
+import progress6_fpUTS.session;
+
 public class MenuAdmin extends javax.swing.JFrame {
 
     /**
@@ -15,6 +14,7 @@ public class MenuAdmin extends javax.swing.JFrame {
      */
     public MenuAdmin() {
         initComponents();
+        NamaAdmin.setText(session.get_nama_user());
     }
 
     /**
@@ -26,22 +26,175 @@ public class MenuAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        KelolaTransaksi = new javax.swing.JButton();
+        KelolaPelanggan = new javax.swing.JButton();
+        KelolaBarang = new javax.swing.JButton();
+        NamaAdmin = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(246, 241, 241));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton1.setBackground(new java.awt.Color(224, 52, 68));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("LOGOUT");
+
+        KelolaTransaksi.setBackground(new java.awt.Color(61, 90, 128));
+        KelolaTransaksi.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        KelolaTransaksi.setForeground(new java.awt.Color(255, 255, 255));
+        KelolaTransaksi.setText("Data Transaksi");
+        KelolaTransaksi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KelolaTransaksiMouseClicked(evt);
+            }
+        });
+
+        KelolaPelanggan.setBackground(new java.awt.Color(61, 90, 128));
+        KelolaPelanggan.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        KelolaPelanggan.setForeground(new java.awt.Color(255, 255, 255));
+        KelolaPelanggan.setText("Data Pelanggan");
+        KelolaPelanggan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KelolaPelangganMouseClicked(evt);
+            }
+        });
+        KelolaPelanggan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KelolaPelangganActionPerformed(evt);
+            }
+        });
+
+        KelolaBarang.setBackground(new java.awt.Color(61, 90, 128));
+        KelolaBarang.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        KelolaBarang.setForeground(new java.awt.Color(255, 255, 255));
+        KelolaBarang.setText("Data Barang");
+        KelolaBarang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KelolaBarangMouseClicked(evt);
+            }
+        });
+        KelolaBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KelolaBarangActionPerformed(evt);
+            }
+        });
+
+        NamaAdmin.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
+        NamaAdmin.setText("Nama Admin");
+
+        jLabel1.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
+        jLabel1.setText("Selamat Datang");
+
+        jLabel2.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
+        jLabel2.setText("Admin :");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(174, 174, 174)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(KelolaTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(KelolaPelanggan)
+                            .addComponent(KelolaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(NamaAdmin))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
+                                .addComponent(jButton1)))))
+                .addGap(20, 20, 20))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(NamaAdmin))
+                .addGap(61, 61, 61)
+                .addComponent(KelolaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(KelolaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(KelolaTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void KelolaTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KelolaTransaksiMouseClicked
+        new KelolaTransaksi().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_KelolaTransaksiMouseClicked
+
+    private void KelolaPelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KelolaPelangganMouseClicked
+        new KelolaPelanggan().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_KelolaPelangganMouseClicked
+
+    private void KelolaPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KelolaPelangganActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KelolaPelangganActionPerformed
+
+    private void KelolaBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KelolaBarangMouseClicked
+        new KelolaBarang().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_KelolaBarangMouseClicked
+
+    private void KelolaBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KelolaBarangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KelolaBarangActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +232,14 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton KelolaBarang;
+    private javax.swing.JButton KelolaPelanggan;
+    private javax.swing.JButton KelolaTransaksi;
+    private javax.swing.JLabel NamaAdmin;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,29 +10,42 @@ package progress6_fpUTS;
  */
 public class cBarang {
     protected String nama_barang;
-    protected int harga_barang;
-    
-    cBarang(){
-        nama_barang = " ";
-        harga_barang = 0;
-        System.out.println("    Objek barang dibuat...");
-    }
+    protected int harga_barang, jumlah_barang, total_harga;
+      
     
     //setter
     public void setNama_Barang(String nb){
-        nama_barang = nb;
+        this.nama_barang = nb;
     }
     
     public void setHarga_Barang(int hb){
-        harga_barang = hb;
+        this.harga_barang = hb;
     }
+    
+    public void setJumlah_Barang(int jb){
+        this.jumlah_barang = jb;
+    }
+    
+    public void setTotal_Harga(int th){
+        this.total_harga = th;
+    }
+    
     
     //getter
     public String getNama_Barang(){
         return nama_barang;
     }  
     
-    public int getHarga_Barang(){
+    public double getHarga_Barang(){
         return harga_barang;
-    }    
+    }
+
+    public int getJumlah_Barang(){
+        return jumlah_barang;
+    }
+    
+    public int getTotal_Harga(){
+        return total_harga;
+    }
+
 }

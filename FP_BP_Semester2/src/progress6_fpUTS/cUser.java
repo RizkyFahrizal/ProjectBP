@@ -8,6 +8,21 @@ package progress6_fpUTS;
  *
  * @author asus
  */
-public class cTransaksi {
+public class cUser {
+    protected String nama;
     
+    cUser(){
+        nama = "";
+
+    }    
+    
+    cUser(String n){
+        nama = n;
+
+    }    
+    
+    //setter
+    public void setNama(String n){
+       nama = n;
+    }    
 }

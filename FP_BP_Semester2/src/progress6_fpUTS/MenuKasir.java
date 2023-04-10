@@ -4,10 +4,9 @@
  */
 package progress6_fpUTS;
 
-/**
- *
- * @author asus
- */
+import progress6_fpUTS.Koneksi;
+import progress6_fpUTS.session;
+
 public class MenuKasir extends javax.swing.JFrame {
 
     /**
@@ -15,6 +14,7 @@ public class MenuKasir extends javax.swing.JFrame {
      */
     public MenuKasir() {
         initComponents();
+        NamaKasir.setText(session.get_nama_user());        
     }
 
     /**
@@ -26,22 +26,135 @@ public class MenuKasir extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        NamaKasir = new javax.swing.JLabel();
+        KelolaBarang = new javax.swing.JButton();
+        KasirKelolaPelanggan = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
+        jLabel1.setText("Selamat Datang");
+
+        jLabel2.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
+        jLabel2.setText("Kasir :");
+
+        NamaKasir.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
+        NamaKasir.setText("Nama Kasir");
+
+        KelolaBarang.setBackground(new java.awt.Color(152, 193, 217));
+        KelolaBarang.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        KelolaBarang.setForeground(new java.awt.Color(51, 51, 51));
+        KelolaBarang.setText("Transaksi");
+        KelolaBarang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KelolaBarangMouseClicked(evt);
+            }
+        });
+        KelolaBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KelolaBarangActionPerformed(evt);
+            }
+        });
+
+        KasirKelolaPelanggan.setBackground(new java.awt.Color(152, 193, 217));
+        KasirKelolaPelanggan.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        KasirKelolaPelanggan.setForeground(new java.awt.Color(51, 51, 51));
+        KasirKelolaPelanggan.setText("Data Pelanggan");
+        KasirKelolaPelanggan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KasirKelolaPelangganMouseClicked(evt);
+            }
+        });
+        KasirKelolaPelanggan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KasirKelolaPelangganActionPerformed(evt);
+            }
+        });
+
+        jButton1.setBackground(new java.awt.Color(224, 52, 68));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("LOGOUT");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(KasirKelolaPelanggan)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(20, 20, 20)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(NamaKasir))))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(160, 160, 160)
+                            .addComponent(KelolaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(20, 20, 20))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(NamaKasir))
+                .addGap(84, 84, 84)
+                .addComponent(KelolaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(KasirKelolaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(101, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void KelolaBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KelolaBarangMouseClicked
+        new Transaksi().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_KelolaBarangMouseClicked
+
+    private void KelolaBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KelolaBarangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KelolaBarangActionPerformed
+
+    private void KasirKelolaPelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KasirKelolaPelangganMouseClicked
+        new KelolaPelanggan().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_KasirKelolaPelangganMouseClicked
+
+    private void KasirKelolaPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KasirKelolaPelangganActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KasirKelolaPelangganActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +192,12 @@ public class MenuKasir extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton KasirKelolaPelanggan;
+    private javax.swing.JButton KelolaBarang;
+    private javax.swing.JLabel NamaKasir;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
