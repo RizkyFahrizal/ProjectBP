@@ -35,6 +35,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         NamaAdmin = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        LaporanHarian = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,7 +49,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jButton1.setText("LOGOUT");
 
         KelolaTransaksi.setBackground(new java.awt.Color(61, 90, 128));
-        KelolaTransaksi.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        KelolaTransaksi.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         KelolaTransaksi.setForeground(new java.awt.Color(255, 255, 255));
         KelolaTransaksi.setText("Data Transaksi");
         KelolaTransaksi.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -58,7 +59,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
 
         KelolaPelanggan.setBackground(new java.awt.Color(61, 90, 128));
-        KelolaPelanggan.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        KelolaPelanggan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         KelolaPelanggan.setForeground(new java.awt.Color(255, 255, 255));
         KelolaPelanggan.setText("Data Pelanggan");
         KelolaPelanggan.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -73,7 +74,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
 
         KelolaBarang.setBackground(new java.awt.Color(61, 90, 128));
-        KelolaBarang.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        KelolaBarang.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         KelolaBarang.setForeground(new java.awt.Color(255, 255, 255));
         KelolaBarang.setText("Data Barang");
         KelolaBarang.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -96,30 +97,49 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
         jLabel2.setText("Admin :");
 
+        LaporanHarian.setBackground(new java.awt.Color(61, 90, 128));
+        LaporanHarian.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        LaporanHarian.setForeground(new java.awt.Color(255, 255, 255));
+        LaporanHarian.setText("Laporan Harian");
+        LaporanHarian.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LaporanHarianMouseClicked(evt);
+            }
+        });
+        LaporanHarian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LaporanHarianActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(174, 174, 174)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(KelolaTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(KelolaPelanggan)
-                            .addComponent(KelolaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(LaporanHarian)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(NamaAdmin)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(NamaAdmin))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
-                                .addComponent(jButton1)))))
-                .addGap(20, 20, 20))
+                                .addComponent(jButton1))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(KelolaBarang)
+                                .addGap(46, 46, 46)
+                                .addComponent(KelolaPelanggan)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(KelolaTransaksi)))
+                        .addGap(20, 20, 20))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,13 +152,14 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(NamaAdmin))
-                .addGap(61, 61, 61)
-                .addComponent(KelolaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(KelolaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(KelolaTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(KelolaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(KelolaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(KelolaTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(LaporanHarian, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -196,6 +217,14 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_KelolaBarangActionPerformed
 
+    private void LaporanHarianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaporanHarianMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LaporanHarianMouseClicked
+
+    private void LaporanHarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaporanHarianActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LaporanHarianActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -235,6 +264,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton KelolaBarang;
     private javax.swing.JButton KelolaPelanggan;
     private javax.swing.JButton KelolaTransaksi;
+    private javax.swing.JButton LaporanHarian;
     private javax.swing.JLabel NamaAdmin;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
