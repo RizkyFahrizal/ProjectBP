@@ -8,8 +8,8 @@ package progress6_fpUTS;
  *
  * @author asus
  */
-public class cBarang {
-    protected String nama_barang;
+public class cBarang extends cPembeli {
+    protected String nama_barang, tanggal;
     protected int harga_barang, jumlah_barang, total_harga;
       
     
@@ -47,5 +47,7 @@ public class cBarang {
     public int getTotal_Harga(){
         return total_harga;
     }
+    
+
 
 }

@@ -33,6 +33,7 @@ public class MenuKasir extends javax.swing.JFrame {
         KelolaBarang = new javax.swing.JButton();
         KasirKelolaPelanggan = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        LaporanHarian = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,7 +49,7 @@ public class MenuKasir extends javax.swing.JFrame {
         NamaKasir.setText("Nama Kasir");
 
         KelolaBarang.setBackground(new java.awt.Color(152, 193, 217));
-        KelolaBarang.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        KelolaBarang.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         KelolaBarang.setForeground(new java.awt.Color(51, 51, 51));
         KelolaBarang.setText("Transaksi");
         KelolaBarang.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -63,7 +64,7 @@ public class MenuKasir extends javax.swing.JFrame {
         });
 
         KasirKelolaPelanggan.setBackground(new java.awt.Color(152, 193, 217));
-        KasirKelolaPelanggan.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        KasirKelolaPelanggan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         KasirKelolaPelanggan.setForeground(new java.awt.Color(51, 51, 51));
         KasirKelolaPelanggan.setText("Data Pelanggan");
         KasirKelolaPelanggan.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -82,28 +83,46 @@ public class MenuKasir extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("LOGOUT");
 
+        LaporanHarian.setBackground(new java.awt.Color(152, 193, 217));
+        LaporanHarian.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        LaporanHarian.setForeground(new java.awt.Color(51, 51, 51));
+        LaporanHarian.setText("Laporan Harian");
+        LaporanHarian.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LaporanHarianMouseClicked(evt);
+            }
+        });
+        LaporanHarian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LaporanHarianActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(KasirKelolaPelanggan)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(NamaKasir)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(NamaKasir))))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(160, 160, 160)
-                            .addComponent(KelolaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(20, 20, 20))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(KelolaBarang)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                                .addComponent(LaporanHarian)
+                                .addGap(52, 52, 52)
+                                .addComponent(KasirKelolaPelanggan)))
+                        .addGap(22, 22, 22))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,11 +135,12 @@ public class MenuKasir extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(NamaKasir))
-                .addGap(84, 84, 84)
-                .addComponent(KelolaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(KasirKelolaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(KelolaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LaporanHarian, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(KasirKelolaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,6 +175,14 @@ public class MenuKasir extends javax.swing.JFrame {
     private void KasirKelolaPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KasirKelolaPelangganActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_KasirKelolaPelangganActionPerformed
+
+    private void LaporanHarianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaporanHarianMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LaporanHarianMouseClicked
+
+    private void LaporanHarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaporanHarianActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LaporanHarianActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,6 +222,7 @@ public class MenuKasir extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton KasirKelolaPelanggan;
     private javax.swing.JButton KelolaBarang;
+    private javax.swing.JButton LaporanHarian;
     private javax.swing.JLabel NamaKasir;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
