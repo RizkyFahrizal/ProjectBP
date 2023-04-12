@@ -205,6 +205,8 @@ public class MenuKasir extends javax.swing.JFrame {
 
     private void LaporanHarianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaporanHarianMouseClicked
         // TODO add your handling code here:
+         new RekapTransaksiHarian().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_LaporanHarianMouseClicked
 
     private void LaporanHarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaporanHarianActionPerformed

@@ -242,7 +242,7 @@ public class RekapPembeliHarian extends javax.swing.JFrame {
         jTextField1.setText(kt);
         String np = jTable1.getValueAt(baris, 1).toString();
         jTextField2.setText(np);
-        tableDetail(kt,np);
+        tableDetail(kt);
     }//GEN-LAST:event_jTable1MouseClicked
 
     public void table(){
@@ -271,7 +271,7 @@ public class RekapPembeliHarian extends javax.swing.JFrame {
         }        
     }
     
-    public void tableDetail(String kt,String np){
+    public void tableDetail(String kt){
         DefaultTableModel tbl = new DefaultTableModel();
         tbl.addColumn("barang");
         tbl.addColumn("harga");
@@ -280,7 +280,7 @@ public class RekapPembeliHarian extends javax.swing.JFrame {
         
         try {
             Statement st = (Statement) Koneksi.getConnection().createStatement();
-            ResultSet rs = st.executeQuery("SELECT barang,harga,jumlah,total FROM transaksi WHERE kode_transaksi='"+kt+"'");
+            ResultSet rs = st.executeQuery("SELECT barang,harga,jumlah,total FROM transaksi WHERE kode_transaksi='"+kt+"' ORDER BY total DESC");
             while(rs.next()){              
                 tbl.addRow(new Object[] {
                     rs.getString("barang"),

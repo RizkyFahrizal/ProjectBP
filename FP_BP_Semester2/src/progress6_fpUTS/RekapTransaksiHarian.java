@@ -25,29 +25,17 @@ public class RekapTransaksiHarian extends javax.swing.JFrame {
     
     public void table(){
         DefaultTableModel tbl = new DefaultTableModel();
-        tbl.addColumn("kode_transaksi");      
-        tbl.addColumn("nama_pembeli");      
-        tbl.addColumn("barang");      
-        tbl.addColumn("harga");      
-        tbl.addColumn("jumlah");      
-        tbl.addColumn("total");                
-        tbl.addColumn("grand_total");                
-        tbl.addColumn("tanggal");      
+        tbl.addColumn("nama pembeli");      
+        tbl.addColumn("total pembelian");   
         
         try {
             Statement st = (Statement) Koneksi.getConnection().createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM transaksi ORDER BY tanggal DESC;");
+            ResultSet rs = st.executeQuery("SELECT nama_pembeli,SUM(grand_total) AS totalpembelian FROM transaksi GROUP BY nama_pembeli ORDER BY totalpembelian DESC");
             
             while(rs.next()){
                 tbl.addRow(new Object[] {
-                    rs.getInt("kode_transaksi"),
                     rs.getString("nama_pembeli"),
-                    rs.getString("barang"),
-                    rs.getInt("harga"),
-                    rs.getInt("jumlah"),
-                    rs.getInt("total"),
-                    rs.getInt("grand_total"),
-                    rs.getDate("tanggal"),
+                    rs.getInt("totalpembelian"),
                 });
                 tableTampil.setModel(tbl);
             }
@@ -70,57 +58,116 @@ public class RekapTransaksiHarian extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableTampil = new javax.swing.JTable();
+        BackToMenu = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("REKAP TRANSAKSI HARIAN");
+        jLabel1.setText("REKAP TRANSAKSI PEMBELI");
 
         tableTampil.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Kode", "Nama Pembeli", "Barang", "Harga", "Total", "Grand Total", "Tanggal"
+                "Nama Pembeli", "Total Pembelian"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
+        tableTampil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableTampilMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableTampil);
+
+        BackToMenu.setBackground(new java.awt.Color(224, 52, 68));
+        BackToMenu.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BackToMenu.setForeground(new java.awt.Color(255, 255, 255));
+        BackToMenu.setText("BACK");
+        BackToMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackToMenuMouseClicked(evt);
+            }
+        });
+        BackToMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackToMenuActionPerformed(evt);
+            }
+        });
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "kode transaksi", "total transaksi", "tanggal"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(248, 248, 248)
-                        .addComponent(jLabel1)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(BackToMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(175, 175, 175)
+                                .addComponent(jLabel1))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(BackToMenu))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -140,6 +187,56 @@ public class RekapTransaksiHarian extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BackToMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackToMenuMouseClicked
+        String lvl = session.get_level();
+        if (lvl.equals("admin")) {
+            new MenuAdmin().setVisible(true);
+            this.dispose();
+        }else if (lvl.equals("kasir")){
+            new MenuKasir().setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_BackToMenuMouseClicked
+
+    private void BackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackToMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BackToMenuActionPerformed
+
+    private void tableTampilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableTampilMouseClicked
+        // TODO add your handling code here:
+         int baris = tableTampil.rowAtPoint(evt.getPoint());
+        String np = tableTampil.getValueAt(baris, 0).toString();
+//        jTextField1.setText(kt);
+//        String np = tableTampil.getValueAt(baris, 1).toString();
+//        jTextField2.setText(np);
+        tableDetail(np);
+    }//GEN-LAST:event_tableTampilMouseClicked
+
+    public void tableDetail(String np){
+        DefaultTableModel tbl = new DefaultTableModel();
+        tbl.addColumn("kode transaksi");
+        tbl.addColumn("total transaksi");
+        tbl.addColumn("tanggal transaksi");        
+        try {
+            Statement st = (Statement) Koneksi.getConnection().createStatement();
+            ResultSet rs = st.executeQuery("SELECT kode_transaksi,grand_total,tanggal FROM transaksi WHERE nama_pembeli='"+np+"' GROUP BY kode_transaksi ORDER BY grand_total DESC");
+            while(rs.next()){              
+                tbl.addRow(new Object[] {
+                    rs.getString("kode_transaksi"),
+                    rs.getString("grand_total"),
+                    rs.getString("tanggal"),
+                                                
+                });
+                jTable2.setModel(tbl);
+               
+            }
+
+
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Koneksi Database Gagal" + e.getMessage());
+        }        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -177,9 +274,12 @@ public class RekapTransaksiHarian extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackToMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTable tableTampil;
     // End of variables declaration//GEN-END:variables
 }
