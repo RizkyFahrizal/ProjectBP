@@ -25,7 +25,7 @@ public class KelolaTransaksi extends javax.swing.JFrame {
     
         public void table(){
         DefaultTableModel tbl = new DefaultTableModel();
-        tbl.addColumn("id_transaksi");
+        tbl.addColumn("kode_transaksi");
         tbl.addColumn("kasir");
         tbl.addColumn("kode_pelanggan");
         tbl.addColumn("jenis_pembeli");      
@@ -33,8 +33,8 @@ public class KelolaTransaksi extends javax.swing.JFrame {
         tbl.addColumn("barang");      
         tbl.addColumn("harga");      
         tbl.addColumn("jumlah");      
-        tbl.addColumn("total");      
-        tbl.addColumn("grand_total");           
+        tbl.addColumn("total");
+        tbl.addColumn("grand_total");
         tbl.addColumn("tanggal");      
         
         try {
@@ -43,7 +43,7 @@ public class KelolaTransaksi extends javax.swing.JFrame {
             
             while(rs.next()){
                 tbl.addRow(new Object[] {
-                    rs.getInt("id_transaksi"),
+                    rs.getString("kode_transaksi"),
                     rs.getString("kasir"),
                     rs.getString("kode_pelanggan"),
                     rs.getString("jenis_pembeli"),
@@ -125,20 +125,20 @@ public class KelolaTransaksi extends javax.swing.JFrame {
 
         tableTampil.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Kasir", "Kode", "Jenis", "Nama", "Barang", "Harga", "Jumlah", "Total", "Grand", "Tagihan", "Tanggal"
+                "ID", "Kasir", "Kode", "Jenis", "Nama", "Barang", "Harga", "Jumlah", "Total", "", "Tanggal"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                true, true, true, false, true, true, true, true, true, true, true, true
+                true, true, true, false, true, true, true, true, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
