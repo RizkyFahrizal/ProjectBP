@@ -205,7 +205,7 @@ public class MenuKasir extends javax.swing.JFrame {
 
     private void LaporanHarianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaporanHarianMouseClicked
         // TODO add your handling code here:
-         new RekapTransaksiHarian().setVisible(true);
+        new RekapTransaksiHarian().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_LaporanHarianMouseClicked
 
@@ -230,7 +230,7 @@ public class MenuKasir extends javax.swing.JFrame {
 
     private void LaporanPembeliPelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaporanPembeliPelangganMouseClicked
         // TODO add your handling code here:
-        new RekapPembeliHarian().setVisible(true);
+        new RekapPembeli().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_LaporanPembeliPelangganMouseClicked
 

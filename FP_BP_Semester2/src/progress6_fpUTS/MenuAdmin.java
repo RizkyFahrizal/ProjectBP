@@ -187,7 +187,8 @@ public class MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_LaporanHarianActionPerformed
 
     private void LaporanHarianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaporanHarianMouseClicked
-        // TODO add your handling code here:
+        new RekapTransaksiHarian().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_LaporanHarianMouseClicked
 
     private void KelolaBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KelolaBarangActionPerformed
