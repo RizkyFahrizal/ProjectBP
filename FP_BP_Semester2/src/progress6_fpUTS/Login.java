@@ -41,8 +41,8 @@ public class Login extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         etLoginUsername = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        etLoginPassword = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
+        etLoginPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,6 +78,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        etLoginPassword.setText("jPasswordField1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -86,16 +88,15 @@ public class Login extends javax.swing.JFrame {
                 .addGap(118, 118, 118)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel5)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(91, 91, 91)
-                            .addComponent(jLabel3))
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
-                        .addComponent(etLoginUsername)
-                        .addComponent(etLoginPassword)))
+                    .addComponent(jLabel5)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(jLabel3))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4)
+                    .addComponent(etLoginUsername)
+                    .addComponent(etLoginPassword))
                 .addContainerGap(118, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -113,9 +114,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(etLoginUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(etLoginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
                 .addComponent(btnLogin)
                 .addGap(51, 51, 51))
         );
@@ -142,7 +143,7 @@ public class Login extends javax.swing.JFrame {
         }else {
             String Query = "SELECT * FROM user WHERE username='"+etLoginUsername.getText()+"' and password='"+etLoginPassword.getText()+"' ";
             try {
-                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bekuin","root","");
+                Con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3357/bekuin","root","DBfahrizal12");
                 St = Con.createStatement();
                 Rs = St.executeQuery(Query);
                 if(Rs.next()){
@@ -216,7 +217,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
-    private javax.swing.JTextField etLoginPassword;
+    private javax.swing.JPasswordField etLoginPassword;
     private javax.swing.JTextField etLoginUsername;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
