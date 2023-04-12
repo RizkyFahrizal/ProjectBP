@@ -126,7 +126,7 @@ public class KelolaBarang extends javax.swing.JFrame {
                 tbl.addRow(new Object[] {
                     rs.getInt("id_barang"),
                     rs.getString("nama_barang"),
-                    rs.getDouble("harga_barang"),
+                    rs.getInt("harga_barang"),
                     rs.getString("kategori_barang")
                 });
                 tableTampil.setModel(tbl);
@@ -204,6 +204,11 @@ public class KelolaBarang extends javax.swing.JFrame {
         btnTampil.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnTampilMouseClicked(evt);
+            }
+        });
+        btnTampil.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentMoved(java.awt.event.ComponentEvent evt) {
+                btnTampilComponentMoved(evt);
             }
         });
 
@@ -397,13 +402,23 @@ public class KelolaBarang extends javax.swing.JFrame {
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         try {
-            String sql = "INSERT INTO barang (nama_barang,harga_barang,kategori_barang) VALUES('"+etNamaBarang.getText() +"','" +etHargaBarang.getText() + "','" +etKategoriBarang.getText() +"')";
-            Connection con = (Connection) Koneksi.getConnection();
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Berhasil Menyimpan");
-            refresh();
+            int n = JOptionPane.showConfirmDialog(  
+                      null,
+                      "Apakah data sudah benar?" ,
+                      "",
+                      JOptionPane.YES_OPTION,
+                      JOptionPane.CLOSED_OPTION);
 
+            if(n == JOptionPane.YES_OPTION)
+            {
+                String sql = "INSERT INTO barang (nama_barang,harga_barang,kategori_barang) VALUES('"+etNamaBarang.getText() +"','" +etHargaBarang.getText() + "','" +etKategoriBarang.getText() +"')";
+                Connection con = (Connection) Koneksi.getConnection();
+                PreparedStatement pst = con.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Berhasil Menyimpan");
+                refresh();
+            }            
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Gagal Menyimpan" + e.getMessage());
         }
@@ -416,12 +431,23 @@ public class KelolaBarang extends javax.swing.JFrame {
 
     private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseClicked
         try {
-            String sql = ("UPDATE barang SET nama_barang='"+etNamaBarang.getText()+"', harga_barang='"+etHargaBarang.getText()+"', kategori_barang='"+etKategoriBarang.getText()+"'  WHERE id_barang='"+etIdBarang.getText()+"' ");
-            Connection con = (Connection) Koneksi.getConnection();
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.execute();
-            refresh();
-            JOptionPane.showMessageDialog(null, "Data Berhasil Di Ubah");
+            int n = JOptionPane.showConfirmDialog(  
+                      null,
+                      "Yakin ingin mengubah data barang?" ,
+                      "",
+                      JOptionPane.YES_OPTION,
+                      JOptionPane.CLOSED_OPTION);
+
+            if(n == JOptionPane.YES_OPTION)
+            {
+                String sql = ("UPDATE barang SET nama_barang='"+etNamaBarang.getText()+"', harga_barang='"+etHargaBarang.getText()+"', kategori_barang='"+etKategoriBarang.getText()+"'  WHERE id_barang='"+etIdBarang.getText()+"' ");
+                Connection con = (Connection) Koneksi.getConnection();
+                PreparedStatement pst = con.prepareStatement(sql);
+                pst.execute();
+                refresh();
+                JOptionPane.showMessageDialog(null, "Data Berhasil Di Ubah");
+            }            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Data Gagal Di Ubah" + e.getMessage());
         }
@@ -434,12 +460,23 @@ public class KelolaBarang extends javax.swing.JFrame {
 
     private void btnHapusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHapusMouseClicked
         try {
-            String sql = "DELETE FROM barang WHERE nama_barang='"+etNamaBarang.getText()+"' ";
-            Connection con = (Connection) Koneksi.getConnection();
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.execute();
-            refresh();
-            JOptionPane.showMessageDialog(null, "Data Berhasil Di Hapus");
+            int n = JOptionPane.showConfirmDialog(  
+                      null,
+                      "Yakin ingin menghapus data barang?" ,
+                      "",
+                      JOptionPane.YES_OPTION,
+                      JOptionPane.CLOSED_OPTION);
+
+            if(n == JOptionPane.YES_OPTION)
+            {
+                String sql = "DELETE FROM barang WHERE nama_barang='"+etNamaBarang.getText()+"' ";
+                Connection con = (Connection) Koneksi.getConnection();
+                PreparedStatement pst = con.prepareStatement(sql);
+                pst.execute();
+                refresh();
+                JOptionPane.showMessageDialog(null, "Data Berhasil Di Hapus");
+            }            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Data Gagal Di Hapus" + e.getMessage());
         }
@@ -484,6 +521,10 @@ public class KelolaBarang extends javax.swing.JFrame {
         new MenuAdmin().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackToMenuMouseClicked
+
+    private void btnTampilComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btnTampilComponentMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTampilComponentMoved
 
     /**
      * @param args the command line arguments

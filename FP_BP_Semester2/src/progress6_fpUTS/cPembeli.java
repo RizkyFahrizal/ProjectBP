@@ -9,11 +9,11 @@ package progress6_fpUTS;
  * @author asus
  */
 public class cPembeli extends cTransaksi{
-    protected String nama_pelanggan, level_pembeli, kasir;  
+    protected String nama_pembeli, level_pembeli, kasir;  
     
     //setter
-    public void setNamaPelanggan(String n){
-       nama_pelanggan = n;
+    public void setNamaPembeli(String n){
+       nama_pembeli = n;
     }
     
     public void setLevel(String lvl){
@@ -22,8 +22,8 @@ public class cPembeli extends cTransaksi{
     
     
     //getter
-    public String getNamaPelanggan(String n){
-        return nama_pelanggan;
+    public String getNamaPembeli(String n){
+        return nama_pembeli;
     }
     
     public String getLevel(String lvl){

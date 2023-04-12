@@ -10,7 +10,8 @@ package progress6_fpUTS;
  */
 public class cTransaksi {
     
-    protected String kasir, tanggal;
+    protected String kasir, tanggal; 
+    protected int kode_transaksi;
 
     public void setKasir(String kasir){
         kasir = kasir;
@@ -18,6 +19,10 @@ public class cTransaksi {
     
     public void setTanggal(String tanggal){
         tanggal = tanggal;
+    }
+    
+    public void setKodeTransaksi(int kt){
+        kode_transaksi = kt;
     }    
     
     public String getKasir(String kasir){
@@ -26,6 +31,10 @@ public class cTransaksi {
 
     public String getTanggal(){
         return tanggal;
+    }
+    
+    public int getKodeTransaksi(){
+        return kode_transaksi;
     }    
     
 }

@@ -214,6 +214,7 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnTampilMouseClicked"/>
+            <EventHandler event="componentMoved" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="btnTampilComponentMoved"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnEdit">
